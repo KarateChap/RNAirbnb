@@ -61,13 +61,13 @@ const Listings = ({ listings: items, category }: Props) => {
             <View style={{ flexDirection: "row", gap: 4 }}>
               <Ionicons name="star" size={16} />
               <Text style={{ fontFamily: "mon-sb" }}>
-                {item.number_of_reviews}
+                {item.number_of_reviews / 20}
               </Text>
             </View>
           </View>
           <Text style={{ fontFamily: "mon" }}>{item.room_type}</Text>
           <View style={{ flexDirection: "row", gap: 4 }}>
-            <Text style={{ fontFamily: "mon-sb" }}>$ 20.00</Text>
+            <Text style={{ fontFamily: "mon-sb" }}>$ {item.price}</Text>
             <Text style={{ fontFamily: "mon" }}>night</Text>
           </View>
         </Animated.View>

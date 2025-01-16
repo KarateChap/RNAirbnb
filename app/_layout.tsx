@@ -106,6 +106,7 @@ function RootLayoutNav() {
         options={{
           headerTitle: "",
           headerTransparent: true,
+          headerBackTitle: "‎",
         }}
       />
       <Stack.Screen
