@@ -3,7 +3,7 @@ import Listings from "@/components/Listings";
 import { Stack } from "expo-router";
 import { useMemo, useState } from "react";
 import { View } from "react-native";
-import listingsData from "@/assets/data/air-bnb-listings.json";
+import listingsData from "@/assets/data/airbnb-listings.json";
 
 const Page = () => {
   const [category, setCategory] = useState("Tiny homes");

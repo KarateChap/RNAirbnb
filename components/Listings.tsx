@@ -1,4 +1,3 @@
-import { imageSources } from "@/constants/ImageSources";
 import { defaultStyles } from "@/constants/Styles";
 import { Listing } from "@/interfaces/listing";
 import { Ionicons } from "@expo/vector-icons";
@@ -13,18 +12,7 @@ import {
   StyleSheet,
   Image,
 } from "react-native";
-import Animated, {
-  BounceIn,
-  FadeIn,
-  FadeInRight,
-  FadeOutLeft,
-  FlipInXUp,
-  LightSpeedInRight,
-  PinwheelIn,
-  RollInLeft,
-  SlideInUp,
-  ZoomIn,
-} from "react-native-reanimated";
+import Animated, { FadeInRight, FadeOutLeft } from "react-native-reanimated";
 
 interface Props {
   listings: any[];
@@ -44,13 +32,6 @@ const Listings = ({ listings: items, category }: Props) => {
     }, 200);
   }, [category]);
 
-  const listingsWithImages = useMemo(() => {
-    return items.map((item) => ({
-      ...item,
-      image: imageSources[Math.floor(Math.random() * imageSources.length)],
-    }));
-  }, [items]);
-
   const renderRow: ListRenderItem<Listing> = ({ item }) => (
     <Link href={`/listing/${item.id}`} asChild>
       <TouchableOpacity>
@@ -61,7 +42,7 @@ const Listings = ({ listings: items, category }: Props) => {
         >
           <Image
             source={{
-              uri: item.image,
+              uri: item.xl_picture_url,
             }}
             style={styles.image}
           />
@@ -98,7 +79,7 @@ const Listings = ({ listings: items, category }: Props) => {
     <View style={defaultStyles.container}>
       <FlatList
         ref={listRef}
-        data={loading ? [] : listingsWithImages}
+        data={loading ? [] : items}
         renderItem={renderRow}
       />
     </View>
